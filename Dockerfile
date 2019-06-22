@@ -9,5 +9,7 @@ RUN curl -L https://github.com/sequenceiq/docker-alpine-dig/releases/download/v9
 COPY update-record.sh /update-record.sh
 COPY entrypoint.sh /entrypoint.sh
 
+RUN mkdir -p /run/secrets
+
 CMD ["/entrypoint.sh"]
 
