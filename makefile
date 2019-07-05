@@ -1,2 +1,2 @@
 all:
-	go build -mod vendor
+	GOOS=linux GOARCH=amd64 go build -mod vendor
