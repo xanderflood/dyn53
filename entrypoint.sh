@@ -12,11 +12,10 @@ aws_secret_access_key=$AWS_SECRET_ACCESS_KEY
 
 echo "
 # m h  dom mon dow   command
-*/30 * * * * hostname=\"$HOSTNAME\" hosted_zone_id=\"$HOSTED_ZONE_ID\" . /update-record.sh >> /var/log/dyn53.log
+*/30 * * * * HOSTNAME=\"$HOSTNAME\" HOSTED_ZONE_ID=\"$HOSTED_ZONE_ID\" . /dyn53 >> /var/log/dyn53.log
 " > /crontab.txt
 
 /usr/bin/crontab /crontab.txt
 
 # start cron
 /usr/sbin/crond -f -l 8
-
