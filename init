@@ -13,5 +13,6 @@ mkdir -p secrets
 echo $aws_access_key_id > secrets/aws_access_key_id
 echo $aws_secret_access_key > secrets/aws_secret_access_key
 
-sudo touch /var/log/dyn53.log
-docker run -e HOSTNAME=$target_hostname -e HOSTED_ZONE_ID=$hosted_zone_id -v $PWD/secrets:/run/secrets -v /var/log/dyn53.log:/var/log/dyn53.log --detach xanderflood/dyn53:latest
+sudo mkdir -p /var/log/dyn53
+sudo touch /var/log/dyn53/dyn53.log
+docker run -e HOSTNAME=$target_hostname -e HOSTED_ZONE_ID=$hosted_zone_id -v $PWD/secrets:/run/secrets -v /var/log/dyn53/dyn53.log:/var/log/dyn53.log --detach xanderflood/dyn53:latest
